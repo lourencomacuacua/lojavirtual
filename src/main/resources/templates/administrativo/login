@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html
+xmlns:th="https://thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"> 
+<html lang="pt-br">
+  <head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <title>Login</title>
+  </head>
+  <body>
+  	<form th:action="@{/admin}" method="post">
+  		<input name="username" placeholder="Usuário"/><br>
+  		<input type="password" name="password" placeholder="Senha"/>
+  		<br>
+  		<button>Entrar</button>
+
+  		
+  	</form>
+  </body>
+  </html>

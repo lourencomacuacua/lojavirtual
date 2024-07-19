@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html
+xmlns:th="https://thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    height: 100vh;
+}
+
+.dashboard-container {
+    display: flex;
+    width: 100%;
+}
+
+.header {
+    background-color: #0e2433;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.user-info {
+    font-size: 18px;
+}
+
+.sidebar {
+    background-color: #0e2433;
+    color: white;
+    width: 200px;
+    padding-top: 60px; /* To account for the fixed header */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 20px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    background-color: #45b6fe;
+    border-radius: 5px;
+}
+
+.main-content {
+    margin-left: 200px; /* To account for the sidebar width */
+    padding: 80px 20px 20px; /* To account for the fixed header */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #0e2433;
+}
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="header">
+            <div class="logo">Dashboard</div>
+            <div class="user-info">Welcome, <span id="userName">User</span>!</div>
+        </header>
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+            <h1>ADMIN Dashboard </h1>
+   <!--         <h2>Welcome, [[${user.getFullname()}]]</h2> -->
+            <span sec:autorize="isAuthenticated">
+            <a th:href="@{/logout}">Logout<a/>
+            </span>
+            <p>This is where your dashboard content will appear.</p>
+        </main>
+    </div>
+
+    <script >
+		    document.addEventListener('DOMContentLoaded', function() {
+		    const userName = 'John Doe'; // Replace with dynamic user name
+		    document.getElementById('userName').textContent = userName;
+		});
+    </script>
+</body>
+</html>

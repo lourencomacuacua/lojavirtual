@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{cliente/fragments/layout}"> 
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Finalizar a compra </title>
+
+</head>
+<body>
+
+<div class="container" layout:fragment="corpo" style="height: 900px">
+	<div class="row">
+
+
+		<div class="col-12">
+		<center><h3>Cadastro</h3><center>
+		<br>
+        <form action="/salvarCliente" th:object="${cliente}" method="POST">
+            <div class="form-row">
+                <div class="col-md-6">
+                  <label for="id" >ID:</label>
+                  <input type="text" readonly="true" class="form-control" id="id"  th:field="*{id}">
+                </div>
+            
+                <div class="form-group col-md-6">
+                    <label for="nome">Nome do Cliente</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Nome Completo"
+                           autofocus="autofocus" th:field="*{nome}" value=""/>
+                    <div class="invalid-feedback">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="numeroBi">Número de BI</label>
+                    <input type="text" class="form-control" id="numeroBi" data-mask="000000000000C" th:field="*{numeroBI}"  />
+                    <div class="invalid-feedback">
+
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="nuit">Nuit</label>
+                    <input type="text" class="form-control" id="nuit" th:field="*{nuit}" data-mask="000000000"
+                          value=""/>
+                    <div class="invalid-feedback">
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="email">E-mail</label>
+                    <input type="text" class="form-control" id="email"  th:field="*{email}"  />
+                    <div class="invalid-feedback">
+
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="senha">Senha</label>
+                    <input type="text" class="form-control" id="senha" th:field="*{senha}"
+                          value=""/>
+                    <div class="invalid-feedback">
+
+                    </div>
+                </div>
+                
+                <div class="form-group col-md-4">
+                    <label for="senha">Endereço</label>
+                    <input type="text" class="form-control" id="senha" th:field="*{endereco}"
+                          value=""/>
+                    <div class="invalid-feedback">
+
+                    </div>
+                </div>
+            </div>
+				<button type="submit" class="btn btn-lg btn-block  btn-success text-uppercase">Salvar</button>
+            </div>
+               
+            
+        </form>
+		</div>
+		<br>
+		<hr>
+	     <center><h3>Login</h3></center>
+	     <br>
+		<div class="col-12">
+		        <form <!-- action="/finalizar/login"--> method="POST">
+
+            
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="email">E-mail</label>
+                    <input type="text" class="form-control" id="email"  name="username" th:field="*{email}"  />
+                    <div class="invalid-feedback">
+
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="senha">Senha</label>
+                    <input type="text" class="form-control" id="senha" name="password" th:field="*{senha}"
+                          value=""/>
+                    <div class="invalid-feedback">
+
+                    </div>
+                </div>
+                
+            </div>
+				<button type="submit" class="btn btn-lg btn-block  btn-success text-uppercase">Logar</button>
+            </div>
+               
+            
+        </form>
+			
+		</div>
+
+	
+		
+	</div>
+			
+</div>
+
+</body>
+</html>
+
+	
+	

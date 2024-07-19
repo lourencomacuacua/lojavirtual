@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html
+xmlns:th="https://thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+    body {
+    /* Define a imagem de fundo */
+    background-image: url('C:\Users\Penicela\Desktop\novasCenas\mouse5');
+    
+    /* Ajuste o comportamento da imagem de fundo */
+    background-size: cover; /* Cobrir toda a área do corpo */
+    background-position: center; /* Centralizar a imagem */
+    background-repeat: no-repeat; /* Evitar repetição da imagem */
+    
+    /* Estilo adicional para o corpo */
+    font-family: Arial, sans-serif; /* Escolha uma fonte apropriada */
+    color: #333; /* Cor do texto principal */
+    margin: 0; /* Remover margens padrão */
+    padding: 0; /* Remover preenchimento padrão */
+}
+
+/* Estilos para a classe container */
+.container {
+    max-width: 400px; /* Largura máxima do container */
+    margin: 0 auto; /* Centralizar o container na página */
+    padding: 20px; /* Espaçamento interno */
+    background-color: #fff; /* Cor de fundo do container */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilos para a classe message */
+.message {
+    background-color: #f2dede; /* Cor de fundo da mensagem de erro */
+    color: #a94442; /* Cor do texto da mensagem de erro */
+    padding: 10px; /* Espaçamento interno */
+    margin-bottom: 10px; /* Espaçamento inferior */
+    border: 1px solid #ebccd1; /* Borda da mensagem de erro */
+    border-radius: 4px; /* Bordas arredondadas */
+    text-align: center; /* Centralizar o texto */
+}
+
+/* Estilos para o botão */
+button {
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    padding: 10px 20px; /* Espaçamento interno */
+    border: none; /* Remover borda */
+    cursor: pointer; /* Cursor ao passar */
+    border-radius: 4px; /* Bordas arredondadas */
+}
+
+/* Estilos para o link */
+a {
+    color: #007bff; /* Cor do link */
+    text-decoration: none; /* Remover sublinhado padrão */
+}
+
+/* Estilos para o link hover */
+a:hover {
+    text-decoration: underline; /* Sublinhar ao passar o mouse */
+}
+
+/* Estilos para o título h2 */
+h2 {
+    text-align: center; /* Centralizar o título */
+    margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+/* Estilos para o formulário */
+form {
+    text-align: center; /* Centralizar o formulário */
+}
+
+/* Estilos para o ícone "Tem conta?" */
+i {
+    display: block; /* Transformar em bloco para alinhamento */
+    text-align: center; /* Centralizar o ícone */
+}
+    
+    </style>
+    <link rel="stylesheet" th:href="@{../cssFile/styles.css}">
+</head>
+<body>
+
+    <div class="container">
+        <div class="message" th:if="${param.error}">
+        	Invalid Username or Password
+        </div>
+        <center>
+        <div class="message" th:if="${param.logout}">
+        	Logout Soccessfuly
+        </div>
+        </center>
+        <center>
+        <h2>Login</h2>
+        </center>
+        <form th:action="@{/login}" method="post" >
+            <center>
+	            <label for="username">Email</label><br>
+	            <input type="email"  id="username" name="username" required><br>
+	            
+	            <label for="password">Password</label><br>
+	            <input type="password"  id="password" maxlength="6" name="password" required><br><br>
+	            
+	            <button type="submit">Login</button>
+	            
+            <center>
+        </form>
+        <br>
+        <i>Tem conta?</i>
+        <a href="/registration">Clique aqui para criar conta<a/>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

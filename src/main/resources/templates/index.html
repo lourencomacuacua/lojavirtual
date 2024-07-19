@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{cliente/fragments/layout}"> 
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Shop Homepage</title>
+
+</head>
+<body>
+
+<div class="container" layout:fragment="corpo">
+<!-- Header-->
+<header class="bg-light py-60">
+    <div class="container px-4 px-lg-5 my-5" >
+        <div class="text-center text-black">
+			<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+			  <div class="carousel-inner">
+			    <div class="carousel-item active">
+			      <img class="d-block w-100"  src="https://behs.pt/wp-content/uploads/2020/07/loja-online-behs-web-1.jpg" alt="Primeiro Slide" style="width: 1000px; height: 350px;">
+			    </div>
+			    <div class="carousel-item">
+			      <img class="d-block w-100" src="https://tfbttg.vteximg.com.br/arquivos/ids/229052/Mob.png?v=638055849399330000" alt="Segundo Slide" style="width: 750px; height: 350px;">
+			    </div>
+			    <div class="carousel-item">
+			      <img class="d-block w-100" src="https://www.supermercadoriodaspedras.com.br/wp-content/uploads/2022/10/PRATICIDADE-CELULAR-720X400.jpg" alt="Terceiro Slide" style="width: 750px; height: 350px;">
+			    </div>
+			  </div>
+			  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Anterior</span>
+			  </a>
+			  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Próximo</span>
+			  </a>
+			</div>
+
+        </div>
+    </div>
+</header>
+
+<hr>
+<!-- Itens-->
+    <div class="row text-center" style="margin-left : 80px">
+
+    	<div class="col-md" th:each="produto : ${listaProdutos}">
+    	<br>
+            <div class="card" style="width: 250px;">
+			  <img class="card-img-top img-fluid " style="width: 140px; height: 120px;" th:src="@{/mostarImagem/{imagem} (imagem=${produto.nomeImagenm})}">
+			  <div class="card-body">
+			    <h5 class="card-title" ><span th:text="${produto.descricao}"> </span></h5>
+			    <p class="card-text">Descrição do produto.</p>
+			    <h4 class="card-title"> <span th:text="${produto.valorVenda}"></span> </h4>
+			    <div class="card-footer">
+			    	<a class="btn btn-primary btn-lg btn-block" th:href="@{/adicionarCarrinho/{id}(id=${produto.id})}" role="button">Comprar</a>
+			    </div>
+			  </div>
+			</div>
+
+    	</div>
+<!-- Footer-->
+
+</body>
+</html>

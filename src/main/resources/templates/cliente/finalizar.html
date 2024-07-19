@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{cliente/fragments/layout}"> 
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Finalizar a compra </title>
+
+</head>
+<body>
+
+<div class="container" layout:fragment="corpo">
+<!--<form action="/finaliazar/confirmar" method="post"> -->
+<form action="/finaliazar/confirmar" method="post">
+	<div class="row">
+	<div class="col-12">
+	<!--
+		<center> <h3><span th:text="${cliente.nome}"></span></h3></center>
+		<center> <h3><span th:text="${cliente.email}"></span></h3></center>
+		<center> <h3><span th:text="${cliente.endereco}"></span></h3></center>
+		-->
+	</div>
+	
+	<div class="col-6">
+	<label for="senha">Forma de pagagmento</label>
+		<select class="form-control" name="formaPagamento">
+		
+			<option value="Cartão de Crédito">M-Pesa</option>
+			<option value="Cartão de Crédito">M-Mola</option>
+			<option value="Cartão de Crédito">M-Kesh</option>
+			<option value="Cartão de Crédito">Cartão de Crédito</option>
+			<option value="Cartão de Débito">Cartão de Débito</option>
+		</select>
+	</div>
+	
+	<br><br>
+    <div class="table-responsive" style="margin-top:10px">
+        <table class="table table-striped table-hover table-sm">
+            <thead>
+            <tr>
+                <td></td>
+                <td>Nome do Produto</td>
+                <td>Quantidade</thd>
+                <td>Valor unitário</td>
+                <td>Valor total</td>
+
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item : ${listaItens}">
+				<td>
+				    <img  th:src="@{/mostarImagem/{imagem} (imagem=${item.produto.nomeImagenm})}"
+				         style="width: 100px; height: 100px;">
+				</td>
+                    
+                    <td th:text="${item.produto.descricao}"></td>
+                    
+                    
+                    <td><span th:text="${item.quantidade}"></span>
+
+                    </td>
+                    <td th:text="${item.valorUnitario}"></td>
+                    <td th:text="${item.valorTotal}"></td>
+                    
+                    <td >
+                    	
+                    </td>
+                </tr>
+                
+                
+                <tr>
+                	<td></td>
+                	<td></td>
+                	<td></td>
+                	<td class="text-right"><strong> Sub-Total: </strong></td>
+                	<td class="text-left"> <strong>  <span th:text="${compra.valorTotal}"></span> Mts</strong></td> 
+                	<td></td> 
+                </tr>
+                
+                <tr>
+                	<td></td>
+                	<td></td>
+                	<td></td>
+                	<td class="text-right"><strong>Total:</strong></td>
+                	<td class="text-left"> <strong>  <span th:text="${compra.valorTotal}"></span> Mts</strong></td>     
+                </tr>
+                
+
+
+         	<tbody>
+		</table>
+	
+	</div>
+	
+		<div class="col mb-2">
+			<div class="row">
+				<div class="col-sm-12 col-md-12 text-right">
+					<button class="btn btn-lg btn-block  btn-success text-uppercase">Comprar</button>
+				</div>
+			</div>
+		
+		</div>
+
+		</div>
+		</form>
+		<!--</form>-->
+	
+</div>
+
+
+
+<!--duas div de fechamento-->
+	<footer>
+
+	</footer>
+</body>
+</html>
+
+	
+	

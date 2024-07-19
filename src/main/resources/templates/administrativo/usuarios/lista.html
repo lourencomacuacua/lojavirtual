@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{administrativo/fragments/layout}"> 
+<html lang="pt-br">
+
+  <head>
+    <title>Página Cadastro de funcionário</title>
+  </head>
+  <body>			
+	    <section class="layout-content" layout:fragment="corpo">
+
+
+
+    <div class="table-responsive">
+    	<table class="table" id="tabela">
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>Nome</td>
+				<td>E-mail</td>
+				<td>Função</td>
+				<td>Ação</td>
+			</tr>
+
+		</thead>
+		
+		
+		<tbody > 
+			<tr th:each="user: ${listaUsuarios}"><!--Percorer lista de users (as linhas da nossa tabela de user) como se fose um for( o user vai ser a entidade que esta na lista de user sendo que user tem os campos nome e sigal-->
+				<td th:text="${user.id}"></td>
+				<td th:text="${user.fullname}"></td>
+				<td th:text="${user.email}"></td>
+				<td th:text="${user.role}"></td>
+		
+				<td >
+
+					
+                                <!-- Modal para confirmação de remoção -->
+                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" th:data-target="'#modal-warning-' + ${user.id}">
+                                    <span class="oi oi-circle-x" aria-hidden="true"></span>
+                                </button>
+                                <div class="modal fade" th:id="'modal-warning-' + ${user.id}" tabindex="-1" role="dialog" aria-labelledby="modal-warning-title" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="modal-warning-title">Remover Usuário</h6>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h5>Deseja realmente remover o Usuário?</h5>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                <a class="btn btn-danger" th:href="@{/removerUsuario/{id} (id=${user.id})}">Sim</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+				</td>
+				
+			</tr>
+		
+		</tbody >
+		
+	
+	</table>
+
+            <a class="btn btn-danger" href="/administrativo"><i class="fa-solid fa-backward"></i>Voltar</a>
+            <a class="btn btn-primary" href="/cadastroFuncionario"><i class="fa-solid fa-plus"></i>Cadastrar</a>
+            
+
+
+    </div>
+</section>
+    <!-- JavaScript (Opcional) -->
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
+	<script> 
+		
+			$(document).ready( function () {
+			    $('#tabela').DataTable();
+			} );
+			
+			var table = new DataTable('#tabela', {
+		    language: {
+		        url: '//cdn.datatables.net/plug-ins/2.0.2/i18n/pt-BR.json',
+		    },
+});
+	
+	</script>
+  </body>
+</html>
+
+

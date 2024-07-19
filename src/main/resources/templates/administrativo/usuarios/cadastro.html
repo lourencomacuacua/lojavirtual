@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{administrativo/fragments/layout}"> 
+<html lang="pt-br">
+
+  <head>
+    <title>Página Cadastro de funcionário</title>
+  </head>
+  <body>			
+	    <section class="layout-content" layout:fragment="corpo">
+
+
+    <div class="container">
+
+        <h2>Cadastro de usuário</h2>
+       
+    <!-- Mensagem de sucesso -->
+    <div th:if="${message}" class="alert alert-success">
+        <p th:text="${message}"></p>
+    </div>
+        <form action="/salvarUsuario" th:object="${user}" method="POST">
+            <div class="form-group">
+            	<div class="row">
+	                <div class="col-md-1">
+	                  <label for="id" >ID:</label>
+	                  <input type="text" readonly="true" class="form-control" id="id"  th:field="*{id}">
+	                </div>
+            	</div>
+            
+            
+				<div class="row">
+				
+					<div class="col-md-4">
+			            <label for="fullname">Nome e sobrenome</label>
+	            		<input type="text" class="form-control" th:field="*{fullname}" id="fullname" name="fulname" required>
+					</div>
+				
+				</div>
+				
+				<div class="row"> 
+					<div class="col-md-4">
+			            <label for="email">E-mail</label>
+	            
+	            		<input type="email" class="form-control" th:field="*{email}" id="email"  name="email" required>
+					</div>  
+				</div> 
+				
+
+				
+				<div class="row"> 
+					<div class="col-md-4">
+			            <label for="password">Senha</label>
+	            
+	            		<input type="password"  class="form-control" th:field="*{password}" id="password" maxlength="6" name="password" required>
+					</div>
+
+				
+				</div>
+				
+				<div class="row"> 
+					<div class="col-md-4">
+			            <label for="password">Autoridade</label>
+	       
+            			<select th:field="*{role}" class="form-control">
+            				<option value="ADMIN">ADMINISTRADOR</option>
+            				<option value="GEREN">GERENTE</option>
+            			</select>
+					
+					</div>  
+				</div> 
+            </div>
+            <button class="btn btn-primary" type="submit">Salvar</button>
+            <a class="btn btn-danger" href="/administrativo"><i class="fa-solid fa-backward"></i>Voltar</a>
+        </form>
+        
+        
+
+        <br>
+
+    </div>
+</section>
+    <script src="scripts.js"></script>
+
+    <!-- JavaScript (Opcional) -->
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script> 
+    	$(document).ready(function(){
+        $('#password').mask('999999');
+  		});
+    
+    </script>
+  </body>
+</html>
+
