@@ -1,4 +1,4 @@
-package com.projeto.sistema1;
+/*package com.projeto.sistema1;
 
 import javax.sql.DataSource;
 import org.springframework.context.annotation.Bean;
@@ -39,3 +39,4 @@ public class configuracaoBancoDadoDeDados {
 
 
 }
+*/
