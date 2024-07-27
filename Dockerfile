@@ -1,4 +1,3 @@
-
 # Etapa de construção
 FROM ubuntu:latest AS build
 
@@ -13,6 +12,9 @@ COPY . .
 
 # Execute o comando Maven para construir o JAR (Ignorando testes)
 RUN mvn clean install -DskipTests
+
+# Verifique o conteúdo do diretório target para confirmar o JAR
+RUN ls -la /app/target/
 
 # Etapa final
 FROM openjdk:17-jdk-slim
