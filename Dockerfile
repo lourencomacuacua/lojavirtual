@@ -23,8 +23,7 @@ FROM openjdk:17-jdk-slim
 EXPOSE 8080
 
 # Copie o JAR da etapa de construção para a imagem final
-COPY --from=build /app/target/deploy_render-1.0.0.jar app.jar
+COPY --from=build /app/target/sistema1-0.0.1-SNAPSHOT.jar app.jar
 
 # Defina o ponto de entrada para o contêiner
 ENTRYPOINT ["java", "-jar", "app.jar"]
-
