@@ -25,7 +25,12 @@ import jakarta.persistence.criteria.Path;
 
 @Controller
 public class ProdutoControle {
-	private static String caminhoImagens="C://Users//Penicela//Documents//imagens//";
+	private static String caminhoImagens="imagens";
+
+	/*
+	
+	C:\Users\Penicela\Desktop\loja5\lojavirtual\imagens
+	*/ 
 	@Autowired
 	private ProdutoRepositorio produtoRepositorio;
 	
