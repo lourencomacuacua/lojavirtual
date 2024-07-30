@@ -32,7 +32,7 @@ public class ItensCompraControle {
 
 	@GetMapping("/listarItensCompra")
 	public ModelAndView listar() {
-		ModelAndView mv= new ModelAndView("/administrativo/itensComprass/lista");
+		ModelAndView mv= new ModelAndView("administrativo/itensComprass/lista");
 		mv.addObject("listaItensCompras",itensCompraRepositorio.findAll());
 		return mv;
 

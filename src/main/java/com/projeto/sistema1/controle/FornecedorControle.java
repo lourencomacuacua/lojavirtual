@@ -24,7 +24,7 @@ public class FornecedorControle {
 	
 	@GetMapping("cadastrarFornecedor")
 	public ModelAndView cadastrar(Fornecedor fornecedor){
-		ModelAndView mv= new ModelAndView("/administrativo/fornecedoress/cadastro");
+		ModelAndView mv= new ModelAndView("administrativo/fornecedoress/cadastro");
 		mv.addObject("fornecedor",fornecedor);
 		
 		return mv;
@@ -33,7 +33,7 @@ public class FornecedorControle {
 	
 	@GetMapping("/listarFornecedor")
 	public ModelAndView listar() {
-		ModelAndView mv= new ModelAndView("/administrativo/fornecedoress/lista");
+		ModelAndView mv= new ModelAndView("administrativo/fornecedoress/lista");
 		mv.addObject("listaFornecedors",fornecedorRepositorio.findAll());
 		return mv;
 

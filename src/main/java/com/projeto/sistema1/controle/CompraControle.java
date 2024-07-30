@@ -25,14 +25,14 @@ import jakarta.persistence.criteria.Path;
 
 @Controller
 public class CompraControle {
-	private static String caminhoImagens="C://Users//Penicela//Documents//imagens//";
+	private static String caminhoImagens="src/main/resources/static/imagens";
 	@Autowired
 	private CompraRepositorio compraRepositorio;
 	
 
 	@GetMapping("/listarCompra")
 	public ModelAndView listar() {
-		ModelAndView mv= new ModelAndView("/administrativo/comprass/lista");
+		ModelAndView mv= new ModelAndView("administrativo/comprass/lista");
 		mv.addObject("listaCompras",compraRepositorio.findAll());
 		return mv;
 

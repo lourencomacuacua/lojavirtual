@@ -25,18 +25,14 @@ import jakarta.persistence.criteria.Path;
 
 @Controller
 public class ProdutoControle {
-	private static String caminhoImagens="imagens";
+	private static String caminhoImagens="src/main/resources/static/imagens";
 
-	/*
-	
-	C:\Users\Penicela\Desktop\loja5\lojavirtual\imagens
-	*/ 
 	@Autowired
 	private ProdutoRepositorio produtoRepositorio;
 	
 	@GetMapping("/cadastrarProdutoo")
 	public ModelAndView cadastrar(Produto produto){
-		ModelAndView mv= new ModelAndView("/administrativo/produtoss/cadastro");
+		ModelAndView mv= new ModelAndView("administrativo/produtoss/cadastro");
 		mv.addObject("produto",produto);
 		return mv;
 	
@@ -44,7 +40,7 @@ public class ProdutoControle {
 	
 	@GetMapping("/listarProdutoo")
 	public ModelAndView listar() {
-		ModelAndView mv= new ModelAndView("/administrativo/produtoss/lista");
+		ModelAndView mv= new ModelAndView("administrativo/produtoss/lista");
 		mv.addObject("listaProdutos",produtoRepositorio.findAll());
 		return mv;
 
