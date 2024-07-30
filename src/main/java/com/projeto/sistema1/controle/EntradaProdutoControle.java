@@ -40,7 +40,7 @@ public class EntradaProdutoControle {
 	
 	@GetMapping("/cadastrarEntradaProdutoo")
 	public ModelAndView cadastrar(EntradaProduto entradaProduto,EntradaItemProduto entradaItem){// A entrada a lista e um item específico. Esses iens de emntrada vamos adicionar na lista de entrada, e aproveito essa lista para mostrar os dados na tabela
-		ModelAndView mv= new ModelAndView("/administrativo/entradaProdutoss/cadastro");
+		ModelAndView mv= new ModelAndView("administrativo/entradaProdutoss/cadastro");
 		mv.addObject("entradaProduto",entradaProduto);
 		mv.addObject("listaEntradaItens",this.listaEntradaItens);
 		mv.addObject("entradaItem",entradaItem);
@@ -53,7 +53,7 @@ public class EntradaProdutoControle {
 	
 	@GetMapping("/listarEntradaProdutoo")
 	public ModelAndView listar() {
-		ModelAndView mv= new ModelAndView("/administrativo/entradaProdutoss/lista");
+		ModelAndView mv= new ModelAndView("administrativo/entradaProdutoss/lista");
 		mv.addObject("listaEntradaProdutos",entradaProdutoRepositorio.findAll());
 		return mv;
 

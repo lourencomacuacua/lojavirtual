@@ -25,7 +25,8 @@ import jakarta.persistence.criteria.Path;
 
 @Controller
 public class ItensCompraControle {
-	private static String caminhoImagens="C://Users//Penicela//Documents//imagens//";
+	private static String caminhoImagens="src/main/resources/static/imagens";
+	
 	@Autowired
 	private ItensCompraRepositorio itensCompraRepositorio;
 	

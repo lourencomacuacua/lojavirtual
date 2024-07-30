@@ -72,7 +72,7 @@ public class UserController {
 	public ModelAndView cadastrar(User user) {
 		
 
-		ModelAndView mv= new ModelAndView("/administrativo/usuarios/cadastro");
+		ModelAndView mv= new ModelAndView("administrativo/usuarios/cadastro");
 		mv.addObject("user",user);
 		return  mv;
 		
@@ -96,7 +96,7 @@ public class UserController {
 	
 	@GetMapping("/listarUsuarios")
 	public ModelAndView listar() {
-		ModelAndView mv= new ModelAndView("/administrativo/usuarios/lista");
+		ModelAndView mv= new ModelAndView("administrativo/usuarios/lista");
 		mv.addObject("listaUsuarios",userRepository.findAll());
 		return mv;
 		
