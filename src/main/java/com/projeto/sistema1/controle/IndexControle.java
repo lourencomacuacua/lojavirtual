@@ -30,11 +30,10 @@ public class IndexControle {
 	
 	@GetMapping("/")
 	public ModelAndView index(){
-		ModelAndView mv= new ModelAndView("/index");
+		ModelAndView mv= new ModelAndView("index");
 		mv.addObject("listaProdutos",produtoRepositorio.findAll());
 		return mv;
 	
 	}
 	
-
 }
