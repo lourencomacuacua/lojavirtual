@@ -25,6 +25,9 @@ public class EntradaProduto implements Serializable{
 	private Funcionario funcionario;
 	@ManyToOne//Muitos fornecedores para uma entrada de produtos
 	private Fornecedor fornecedor;
+	
+	
+	
 	public Fornecedor getFornecedor() {
 		return fornecedor;
 	}
