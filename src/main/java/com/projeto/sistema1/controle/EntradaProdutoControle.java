@@ -56,8 +56,8 @@ public class EntradaProdutoControle {
 		ModelAndView mv= new ModelAndView("administrativo/entradaProdutoss/lista");
 		mv.addObject("listaEntradaProdutos",entradaProdutoRepositorio.findAll());
 		return mv;
-
 	}
+	
 	@PostMapping("/salvarEntradaProduto")
 	public ModelAndView salvar(String acao,EntradaProduto entradaProduto, EntradaItemProduto entradaItemProduto,Model model) {
 		//Esse método podemos aproveitar para diferentes ações, ou seja, em determinado momento podemos charmar esse método para adicionar um item na lista e em outro momento para salvar essa informações no banco de dados, porque  o usuarário vai adicionando os itens na lista e quando adicionar todos esses itens ele vai finalizar essa entrada

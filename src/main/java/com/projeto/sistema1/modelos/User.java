@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 @Entity
 @Table(name="users")
@@ -17,6 +18,8 @@ public class User {
 	private String password;
 	private String role;
 	private String fullname;
+	@ManyToOne
+	private Funcionario funcionario;
 	public User() {
 		super();
 	}
@@ -26,6 +29,13 @@ public class User {
 		this.password = password;
 		this.role = role;
 		this.fullname = fullname;
+	}
+	
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
 	}
 	public Long getId() {
 		return id;

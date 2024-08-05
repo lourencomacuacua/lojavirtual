@@ -2,12 +2,15 @@ package com.projeto.sistema1.modelos;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -25,7 +28,16 @@ public class Funcionario  implements Serializable{
 	private String salarioBruto;
 	private String email;
 	private String senha;
+	@OneToMany(mappedBy = "funcionario",cascade=CascadeType.REMOVE)
+	private List<User> users;
 	
+	
+	public List<User> getUsers() {
+		return users;
+	}
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
 	public String getEmail() {
 		return email;
 	}

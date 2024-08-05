@@ -7,6 +7,24 @@
   </head>
   <body>			
 	    <section class="layout-content" layout:fragment="corpo">
+	        <div class="page-header">
+	            <nav class="navbar navbar-expand-md navbar-top bg-light">
+	                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+	                    <ul class="navbar-nav">
+	                        <li class="nav-item active">
+	                            <i class="oi oi-caret-right"></i>
+	                            <span>Cadastrar Usuário</span>
+	                        </li>
+	                    </ul>
+	                </div>
+	                <a class="btn btn-primary btn-md" href="/listarUsuarios" role="button">
+	                    <span class="oi oi-spreadsheet" title="Cadastro" aria-hidden="true"></span>
+	                    <span>Listar Usuários</span>
+	                </a>
+	            </nav>
+	        </div>
+	              	
+      	<br>
 
 
     <div class="container">
@@ -30,7 +48,7 @@
 				<div class="row">
 				
 					<div class="col-md-4">
-			            <label for="fullname">Nome e sobrenome</label>
+			            <label for="fullname">Nome do usuário</label>
 	            		<input type="text" class="form-control" th:field="*{fullname}" id="fullname" name="fulname" required>
 					</div>
 				
@@ -58,7 +76,7 @@
 				
 				<div class="row"> 
 					<div class="col-md-4">
-			            <label for="password">Autoridade</label>
+			            <label for="password">Perfil</label>
 	       
             			<select th:field="*{role}" class="form-control">
             				<option value="ADMIN">ADMINISTRADOR</option>
@@ -67,9 +85,20 @@
 					
 					</div>  
 				</div> 
+				
+				<div class="row">
+					<div class="col-md-4">
+			              <label >Funcionário:</label>        
+			              <select th:field="*{funcionario}" class="form-control">
+			                <option th:each="fun : ${listaFuncionarios}" th:value="${fun.id}" th:text="${fun.nome}"> </option>  
+			              </select >
+	              	</div> 
+				
+				</div>
             </div>
-            <button class="btn btn-primary" type="submit">Salvar</button>
-            <a class="btn btn-danger" href="/administrativo"><i class="fa-solid fa-backward"></i>Voltar</a>
+            <br>
+            <button class="btn btn-primary" type="submit"><i class="fa-solid fa-floppy-disk"></i> Salvar</button>
+
         </form>
         
         
