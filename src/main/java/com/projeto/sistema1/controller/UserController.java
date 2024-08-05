@@ -114,13 +114,12 @@ public class UserController {
 	
 	@GetMapping("/listarUsuarios")
 	public ModelAndView listar() {
-		ModelAndView mv= new ModelAndView("/administrativo/usuarios/lista");
+		ModelAndView mv= new ModelAndView("administrativo/usuarios/lista");
 		mv.addObject("listaUsuarios",userRepository.findAll());
 		return mv;
 		
 	}
 
-	
 	@GetMapping("/removerUsuario/{id}")
 	public ModelAndView remover(@PathVariable("id") Long id) {
 		Optional<User> user =userRepository.findById(id);
